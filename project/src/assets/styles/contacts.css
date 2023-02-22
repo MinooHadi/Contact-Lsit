@@ -1,0 +1,4 @@
+.main-contacts{
+    display: flex;
+    justify-content: space-between;
+}
