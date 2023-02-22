@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  contact: {},
+  contact: [],
 };
 
 const contactSlice = createSlice({
@@ -10,7 +10,7 @@ const contactSlice = createSlice({
   initialState,
   reducers: {
     addContact: (state, action) => {
-      state.contact = action.payload;
+      state.contact.push(action.payload);
     },
   },
 });
