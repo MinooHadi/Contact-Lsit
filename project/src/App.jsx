@@ -1,12 +1,13 @@
 import "./App.css";
-import Form from "./components";
+import { Contact, Form } from "./components";
 
 
 function App() {
 
   return (
     <div className="App">
-     <Form />
+      <Form />
+      <Contact />
     </div>
   );
 }
