@@ -1,12 +1,10 @@
 import useFormValidation from "./customFormValidation";
 import "./../../assets/styles/form.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 function Form() {
-  const { contact, editingId } = useSelector(
-    (state) => state.contact
-  );
+  const { contact, editingId } = useSelector((state) => state.contact);
 
   const {
     input,
@@ -21,7 +19,7 @@ function Form() {
   useEffect(() => {
     if (editingId) {
       const editContactInfo = contact.find((item) => item.id === editingId);
-      setInput(editContactInfo)
+      setInput(editContactInfo);
     }
   }, [editingId]);
 

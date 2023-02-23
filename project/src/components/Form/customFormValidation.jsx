@@ -4,7 +4,7 @@ import { contactSliceActions } from "../../redux/store";
 
 function useFormValidation() {
   const dispatch = useDispatch();
-  const { contact, editingId } = useSelector((state) => state.contact);
+  const { contact } = useSelector((state) => state.contact);
 
   const [input, setInput] = useState({
     id: "",
