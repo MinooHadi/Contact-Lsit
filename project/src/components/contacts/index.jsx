@@ -7,8 +7,6 @@ import { contactSliceActions } from "../../redux/store";
 function Contacts() {
   const dispatch = useDispatch()
   const { contact } = useSelector((state) => state.contact);
-  console.log(contact);
-
   
   return (
     <div className="main-contacts">

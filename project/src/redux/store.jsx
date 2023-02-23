@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   contact: [],
+  deletingId: undefined,
 };
 
 const contactSlice = createSlice({
@@ -18,6 +19,10 @@ const contactSlice = createSlice({
       state.contact = state.contact.filter(
         (contact) => contact.id !== action.payload
       );
+      state.deletingId = undefined;
+    },
+    showModal: (state, action) => {
+      state.deletingId = action.payload;
     },
   },
 });
