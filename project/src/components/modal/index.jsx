@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { contactSliceActions } from "../../redux/store";
+import "./../../assets/styles/modal.css"
 
 function Modal() {
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ function Modal() {
 
   return ReactDOM.createPortal(
     <>
-      <div>
+      <div className="main-modal">
         <p>آیا میخواهید {contactFullName} را حذف کنید؟</p>
-        <div>
-          <button onClick={() => deleteContact(deletingId)}>بله</button>
-          <button onClick={cancel}>خیر</button>
+        <div className="modal-btn">
+          <button className="btn" onClick={() => deleteContact(deletingId)}>بله</button>
+          <button className="btn" onClick={cancel}>خیر</button>
         </div>
       </div>
     </>,
