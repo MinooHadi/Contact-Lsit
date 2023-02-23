@@ -7,11 +7,12 @@ import { contactSliceActions } from "../../redux/store";
 function Contacts() {
   const dispatch = useDispatch()
   const { contact } = useSelector((state) => state.contact);
+  console.log(contact);
 
   
   return (
     <div className="main-contacts">
-      {contact.map(item => <Contact firstName={item.firstName} lastName={item.lastName} relation={item.relation} email={item.email} />)}
+      {contact.map(item => <Contact key={item.id} id={item.id} firstName={item.firstName} lastName={item.lastName} relation={item.relation} email={item.email} />)}
     </div>
   );
 }

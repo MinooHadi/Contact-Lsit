@@ -7,6 +7,7 @@ function useFormValidation() {
   const { contact } = useSelector((state) => state.contact);
 
   const [input, setInput] = useState({
+    id: "",
     firstName: "",
     lastName: "",
     phoneNumber: "",
@@ -157,10 +158,12 @@ function useFormValidation() {
       dispatch(contactSliceActions.addContact(input));
       e.target.reset();
       setInput({
+        id: "",
         firstName: "",
         lastName: "",
-        email: "",
         phoneNumber: "",
+        relation: "",
+        email: "",
       });
     }
   }
@@ -176,7 +179,7 @@ function useFormValidation() {
     setErrors,
     getInputValue,
     formSubmited,
-    inputBulurHandler
+    inputBulurHandler,
   };
 }
 

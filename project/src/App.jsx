@@ -1,5 +1,5 @@
 import "./App.css";
-import { Contact, Contacts, Form } from "./components";
+import { Contact, Contacts, Form, Modal } from "./components";
 
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <Form />
       <Contacts />
+      <Modal />
     </div>
   );
 }
