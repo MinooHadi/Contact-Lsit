@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { contactSliceActions } from "../../redux/store";
 
 function useFormValidation() {
@@ -183,7 +183,7 @@ function useFormValidation() {
         email: "",
       });
     }
-    dispatch(contactSliceActions.editedId(undefined))
+    dispatch(contactSliceActions.editedId(undefined));
   }
 
   useEffect(() => {

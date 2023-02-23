@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
 import { contactSliceActions } from "../../redux/store";
 import "./../../assets/styles/modal.css"
 

@@ -1,12 +1,10 @@
 import useFormValidation from "./customFormValidation";
 import "./../../assets/styles/form.css";
 import { useDispatch, useSelector } from "react-redux";
-import { contactSliceActions } from "../../redux/store";
 import { useEffect } from "react";
 
 function Form() {
-  const dispatch = useDispatch();
-  const { contact, isShowModal, editingId } = useSelector(
+  const { contact, editingId } = useSelector(
     (state) => state.contact
   );
 
@@ -14,7 +12,6 @@ function Form() {
     input,
     setInput,
     errors,
-    setErrors,
     getInputValue,
     formSubmited,
     formSubmitEdit,
