@@ -1,9 +1,0 @@
-.App{
-    background-color: rgb(178, 118, 235);
-    width: 50%;
-    padding: 1.25rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 3.125rem;
-}

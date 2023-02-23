@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { contactSliceActions } from "../../redux/store";
-import "./../../assets/styles/modal.css";
 import { toast } from "react-toastify";
 
 function Modal() {
@@ -24,13 +23,21 @@ function Modal() {
 
   return ReactDOM.createPortal(
     <>
-      <div className="main-modal">
+      <div
+        className={`w-1/3 h-32 py-2 flex flex-col items-center fixed border-solid bg-white top-1/2 left-1/3 px-5 rounded-xl shadow-slate-900 gap-5 justify-center`}
+      >
         <p>آیا میخواهید {contactFullName} را حذف کنید؟</p>
-        <div className="modal-btn">
-          <button className="btn" onClick={() => deleteContact(deletingId)}>
+        <div className={`flex gap-10`}>
+          <button
+            className={`py-1 px-5 border-none bg-slate-800 text-white rounded-md`}
+            onClick={() => deleteContact(deletingId)}
+          >
             بله
           </button>
-          <button className="btn" onClick={cancel}>
+          <button
+            className={`py-1 px-5 border-none bg-slate-800 text-white rounded-md`}
+            onClick={cancel}
+          >
             خیر
           </button>
         </div>

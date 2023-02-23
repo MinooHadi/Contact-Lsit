@@ -1,4 +1,3 @@
-import "./../../assets/styles/contact.css";
 import { useDispatch } from "react-redux";
 import { contactSliceActions } from "../../redux/store";
 
@@ -14,8 +13,8 @@ function Contact(props) {
   }
 
   return (
-    <div className="main-contact">
-      <div className="header-contact">
+    <div className={`w-52 h-32 px-5 border-2 border-gray-40 flex flex-col gap-4 justify-center`}>
+      <div className={`flex justify-between`}>
         <h3>
           {props.firstName} {props.lastName}
         </h3>

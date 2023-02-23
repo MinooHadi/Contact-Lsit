@@ -1,12 +1,11 @@
 import Contact from "../contact";
-import "./../../assets/styles/contacts.css";
 import { useSelector } from "react-redux";
 
 function Contacts() {
   const { contact } = useSelector((state) => state.contact);
 
   return (
-    <div className="main-contacts">
+    <div className={`flex flex-start flex-wrap gap-3`}>
       {contact.map((item) => (
         <Contact
           key={item.id}
