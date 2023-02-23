@@ -10,10 +10,10 @@ function Form() {
     input,
     setInput,
     errors,
+    disable,
     getInputValue,
     formSubmited,
     formSubmitEdit,
-    inputBulurHandler,
   } = useFormValidation();
 
   useEffect(() => {
@@ -30,7 +30,6 @@ function Form() {
         placeholder="نام"
         name="firstName"
         onChange={getInputValue}
-        onBlur={inputBulurHandler}
         defaultValue={editingId ? input.firstName : ""}
       />
       {errors.firstName && <p> {errors.firstName} </p>}
@@ -39,7 +38,6 @@ function Form() {
         placeholder="نام خانوادگی"
         name="lastName"
         onChange={getInputValue}
-        onBlur={inputBulurHandler}
         defaultValue={editingId ? input.lastName : ""}
       />
       {errors.lastName && <p> {errors.lastName} </p>}
@@ -48,7 +46,6 @@ function Form() {
         placeholder="شماره تماس"
         name="phoneNumber"
         onChange={getInputValue}
-        onBlur={inputBulurHandler}
         defaultValue={editingId ? input.phoneNumber : ""}
       />
       {errors.phoneNumber && <p> {errors.phoneNumber} </p>}
@@ -65,15 +62,14 @@ function Form() {
         placeholder="ایمیل"
         name="email"
         onChange={getInputValue}
-        onBlur={inputBulurHandler}
         defaultValue={editingId ? input.email : ""}
       />
       {errors.email && <p> {errors.email} </p>}
-      {editingId ? (
-        <input type="submit" value="ذخیره کردن" />
-      ) : (
-        <input type="submit" value="اضافه کردن" />
-      )}
+      <input
+        type="submit"
+        value={editingId ? "ذخیره کردن" : "اضافه کردن"}
+        disabled={disable}
+      />
     </form>
   );
 }
