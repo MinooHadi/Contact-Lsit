@@ -4,10 +4,14 @@ import { contactSliceActions } from "../../redux/store";
 
 function Contact(props) {
   const dispatch = useDispatch();
-  const { contact, isShowModal } = useSelector((state) => state.contact);
+  const { contact, isShowModal, editingId } = useSelector((state) => state.contact);
 
   function showDeleteModal(id) {
     dispatch(contactSliceActions.showModal(id));
+  }
+
+  function editingMode(id) {
+      dispatch(contactSliceActions.editedId(id))
   }
 
   return (
@@ -21,7 +25,7 @@ function Contact(props) {
             icon="eva:trash-2-fill"
             onClick={() => showDeleteModal(props.id)}
           ></iconify-icon>
-          <iconify-icon icon="material-symbols:edit-square-rounded"></iconify-icon>
+          <iconify-icon icon="material-symbols:edit-square-rounded" onClick={() => editingMode(props.id)}></iconify-icon>
         </div>
       </div>
       <p> {props.relation} </p>

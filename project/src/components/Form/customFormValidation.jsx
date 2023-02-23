@@ -4,7 +4,7 @@ import { contactSliceActions } from "../../redux/store";
 
 function useFormValidation() {
   const dispatch = useDispatch();
-  const { contact } = useSelector((state) => state.contact);
+  const { contact, editingId } = useSelector((state) => state.contact);
 
   const [input, setInput] = useState({
     id: "",
@@ -153,6 +153,7 @@ function useFormValidation() {
   }
 
   function formSubmited(e) {
+    console.log("submit");
     e.preventDefault();
     if (validateAll()) {
       dispatch(contactSliceActions.addContact(input));
@@ -168,6 +169,23 @@ function useFormValidation() {
     }
   }
 
+  function formSubmitEdit(e) {
+    e.preventDefault();
+    if (validateAll()) {
+      dispatch(contactSliceActions.editingMode(input));
+      e.target.reset();
+      setInput({
+        id: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        relation: "",
+        email: "",
+      });
+    }
+    dispatch(contactSliceActions.editedId(undefined))
+  }
+
   useEffect(() => {
     console.log(contact);
   }, [contact]);
@@ -179,6 +197,7 @@ function useFormValidation() {
     setErrors,
     getInputValue,
     formSubmited,
+    formSubmitEdit,
     inputBulurHandler,
   };
 }

@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   contact: [],
   deletingId: undefined,
+  editingId: undefined,
 };
 
 const contactSlice = createSlice({
@@ -12,7 +13,6 @@ const contactSlice = createSlice({
   reducers: {
     addContact: (state, action) => {
       const newContact = { ...action.payload, id: Date.now() };
-      console.log(newContact);
       state.contact.push(newContact);
     },
     deleteContact: (state, action) => {
@@ -24,6 +24,15 @@ const contactSlice = createSlice({
     showModal: (state, action) => {
       state.deletingId = action.payload;
     },
+    editedId: (state, action) => {
+        state.editingId = action.payload
+    },
+    editingMode: (state, action) => {
+      const editIndex = state.contact.findIndex(item => item.id === action.payload.id);
+      const copyContact = [...state.contact]
+      copyContact.splice(editIndex, 1, action.payload);
+      state.contact = copyContact
+    }
   },
 });
 
