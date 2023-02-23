@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { contactSliceActions } from "../../redux/store";
+import { toast } from "react-toastify";
+
 
 function useFormValidation() {
   const dispatch = useDispatch();
@@ -166,7 +168,8 @@ function useFormValidation() {
       relation: "",
       email: "",
     });
-    setDisable(true)
+    setDisable(true);
+    toast.success("مخاطب جدید با موفقیت ذخیره شد");
   }
 
   function formSubmitEdit(e) {
@@ -183,6 +186,8 @@ function useFormValidation() {
     });
     dispatch(contactSliceActions.editedId(undefined));
     setDisable(true)
+    toast.success("اطلاعات مخاطب با موفقیت ویرایش شد");
+
   }
 
   useEffect(() => {
