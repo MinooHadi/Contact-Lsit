@@ -186,7 +186,6 @@ function useFormValidation() {
   }
 
   useEffect(() => {
-    console.log(input);
     if (input.firstName && input.lastName && input.email && input.phoneNumber) {
       setDisable(false);
     } else {
